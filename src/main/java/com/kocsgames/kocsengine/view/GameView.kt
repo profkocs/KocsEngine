@@ -6,7 +6,9 @@ import android.graphics.Canvas
 import android.graphics.Point
 import android.graphics.Rect
 import android.os.Handler
+import android.view.MotionEvent
 import android.view.View
+import com.kocsgames.kocsengine.controller.Controller
 import com.kocsgames.kocsengine.model.Sprite
 
 
@@ -22,6 +24,7 @@ open class GameView(context: Context) : View(context) {
 
     var sprites = ArrayList<Sprite>()
     var background: Sprite? = null
+    var controller: Controller? = null
 
 
     init {
@@ -65,6 +68,28 @@ open class GameView(context: Context) : View(context) {
                 null
             )
         }
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        when (event!!.action) {
+            MotionEvent.ACTION_DOWN -> {
+                if (controller != null) {
+                    controller!!.actionDown(event.x, event.y)
+                }
+            }
+            MotionEvent.ACTION_MOVE -> {
+                if (controller != null) {
+                    controller!!.actionMove(event.x, event.y)
+                }
+            }
+            MotionEvent.ACTION_UP -> {
+                if (controller != null) {
+                    controller!!.actionUp(event.x, event.y)
+                }
+            }
+
+        }
+        return false
     }
 
 

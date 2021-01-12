@@ -5,12 +5,15 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 
 
-class Sprite() {
+class Sprite {
 
     var bitmap: Bitmap? = null
     var physic: Physic? = null
     var pointX: Int = 0
     var pointY: Int = 0
+
+    constructor(){}
+
 
     constructor(context: Context, resource: Int, physic: Physic?) {
         this.bitmap = BitmapFactory.decodeResource(context.resources, resource)
