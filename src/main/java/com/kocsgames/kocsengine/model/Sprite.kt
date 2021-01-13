@@ -9,10 +9,12 @@ class Sprite {
 
     var bitmap: Bitmap? = null
     var physic: Physic? = null
+    var text: String? = null
     var pointX: Int = 0
     var pointY: Int = 0
 
-    constructor(){}
+
+    constructor() {}
 
 
     constructor(context: Context, resource: Int, physic: Physic?) {
