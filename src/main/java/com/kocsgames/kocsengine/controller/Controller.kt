@@ -1,9 +1,22 @@
 package com.kocsgames.kocsengine.controller
 
 import android.util.Log
+import com.kocsgames.kocsengine.physic.PhysicEngine
 import com.kocsgames.kocsengine.view.GameView
 
 open class Controller(var view: GameView) {
+
+
+    var physicEngine: PhysicEngine? = null
+
+
+    open fun control() {
+
+        if (physicEngine != null) {
+            //Todo: Make physic stuffs
+        }
+
+    }
 
 
     open fun actionDown(pointX: Float, pointY: Float) {

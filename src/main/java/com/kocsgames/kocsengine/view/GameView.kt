@@ -49,7 +49,7 @@ open class GameView(context: Context) : View(context) {
         super.onDraw(canvas)
         drawBackground(canvas)
         drawSprites(canvas)
-
+        controlView()
         frame_handler.postDelayed(frame_runnable, frame_update_millis.toLong())
     }
 
@@ -69,6 +69,11 @@ open class GameView(context: Context) : View(context) {
             )
         }
     }
+
+    private fun controlView() {
+        controller!!.control()
+    }
+
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         when (event!!.action) {
